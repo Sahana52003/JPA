@@ -15,6 +15,8 @@ public class GrozzeryRunner {
         transaction.begin();
         GrozzeryEntity grozzery=new GrozzeryEntity(2,"Mobiles",150,6383194693L);
         GrozzeryEntity grozzery1 = entityManager.find(GrozzeryEntity.class, 1);
+        System.out.println(grozzery1.toString());
+//        System.out.println(grozzery.toString());
         entityManager.persist(grozzery);
         transaction.commit();
         entityManager.close();
