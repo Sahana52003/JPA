@@ -23,7 +23,6 @@ public class Main {
         entity.add(new SpotifyEntity(4,"wildflower","RM",456L,true));
         entity.add(new SpotifyEntity(5,"Blue","Yung kai",105L,false));
         entity.add(new SpotifyEntity(6,"YourName","RADWiMPS",403L,true));
-
         for (SpotifyEntity spotify:entity){
             entityManager.persist(spotify);
         }
