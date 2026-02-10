@@ -21,8 +21,8 @@ public class LinkedinController {
         @Autowired
         LinkedInDAO linkedInDAO;
     @PostMapping("/loginPage")
-    public String loginPage(@ModelAttribute LinkedinEntity linkedin) {
-        linkedInDAO.save(linkedin);
+    public String loginPage( LinkedInDAO linkedInDAO) {
+        linkedInDAO.save();
         return "index";
     }
 }
