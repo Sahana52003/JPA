@@ -22,6 +22,7 @@ public class Twitter {
 //            entityManager.persist(entity);
 //        }
 //
+
 //
 //        TwitterEntity twitter=entityManager.find(TwitterEntity.class,"Indhu");
 //        System.out.println(twitter.toString());
@@ -29,18 +30,45 @@ public class Twitter {
         List<TwitterEntity> list=new ArrayList<>();
 
         Query query = entityManager.createNamedQuery("read");
+        query.setParameter("name","Bindhu");
         List<TwitterEntity> resultList = (List<TwitterEntity>) query.getResultList();
+        System.out.println("query----");
+        System.out.println(resultList);
 
         Query quer1 = entityManager.createNamedQuery("readALL");
+        quer1.setParameter("username","Muktha");
         List<TwitterEntity> resultList1 = (List<TwitterEntity>) quer1.getResultList();
-
+        System.out.println("quer1===");
+        System.out.println(resultList1);
 
         Query twitter = entityManager.createNamedQuery("twitter");
         List resultList2 = twitter.getResultList();
         System.out.println(resultList2);
+        System.out.println("twitter--");
 
-        System.out.println(resultList);
-        System.out.println(resultList1);
+        Query data = entityManager.createNamedQuery("data");
+        data.setParameter("mobile_number",7823198473L);
+        data.setParameter("email_id","bindu7@gmail.com");
+        System.out.println("data=====");
+        List res=data.getResultList();
+        System.out.println(res);
+
+        System.out.println("AND=====");
+        Query chat = entityManager.createNamedQuery("chat");
+        chat.setParameter("phoneNumber",8923561848L);
+        chat.setParameter("name","Nandushree");
+        List resultList3 = chat.getResultList();
+        System.out.println(resultList3);
+
+
+        System.out.println("OR Operator");
+        Query vi = entityManager.createNamedQuery("vi");
+        vi.setParameter("mobile_Number",7823198473L);
+        vi.setParameter("email_Id","bindu7@gmail.com");
+        List resultList4 = vi.getResultList();
+        System.out.println(resultList4);
+
+
         transaction.commit();
         entityManager.close();
         entityManagerFactory.close();
