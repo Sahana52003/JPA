@@ -16,8 +16,8 @@ public class CompanyEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String fName;
-    private String lName;
+    private String firstName;
+    private String lastName;
     private String email;
     private String password;
     private String companyName;

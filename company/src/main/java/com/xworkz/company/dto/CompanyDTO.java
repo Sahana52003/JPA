@@ -8,10 +8,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CompanyDTO {
-    private String fName;
-    private String lName;
+    private String firstName;
+    private String lastName;
     private String email;
     private String password;
     private String companyName;
     private Long mobileNumber;
+
+//    public String getfName() {
+//        return null;
+//    }
 }

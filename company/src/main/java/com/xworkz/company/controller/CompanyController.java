@@ -18,19 +18,37 @@ public class CompanyController {
     CompanyService companyService;
 
 
-    public CompanyController(){
+    public CompanyController() {
         System.out.println("CompanyController is Called");
     }
 
     @PostMapping("/loginPage")
-    public ModelAndView loginPage(CompanyDTO companyDTO, Model model){
-        companyService.register(companyDTO);
+    public String loginPage(CompanyDTO companyDTO, Model model) {
+        boolean register = companyService.register(companyDTO);
         System.out.println("Data entered in the LoginPage : " + companyDTO);
-//        model.addAttribute("dto","Registered Successfully");
-//        return "register";
-        ModelAndView modelAndView=new ModelAndView();
-        modelAndView.addObject("dto",companyDTO );
-        modelAndView.setViewName("register");
-        return modelAndView;
+////        model.addAttribute("dto","Registered Successfully");
+////        return "register";
+
+
+
+
+
+
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.addObject("msg", companyDTO);
+//        modelAndView.setViewName("register");
+//        return modelAndView;
+
+
+        if(register){
+            model.addAttribute("message","Register Successfully");
+            model.addAttribute("color","green");
+        }else {
+            model.addAttribute("message","Failed to Register");
+            model.addAttribute("color","red");
+        }
+        return "index";
+
+
     }
-}
+    }

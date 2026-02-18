@@ -10,7 +10,7 @@
     <title>Register Form</title>
 </head>
 <body>
-    <h1>${dto}</h1>
-
+    <h1>${msg}</h1>
+     <h1>${msg.firstName}</h1>
 </body>
 </html>

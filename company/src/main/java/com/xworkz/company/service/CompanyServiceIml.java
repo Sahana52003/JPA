@@ -15,26 +15,41 @@ public class CompanyServiceIml implements CompanyService {
 
     @Override
     public boolean register(CompanyDTO companyDTO) {
-        System.out.println("CompanyServiceIml is Called " + companyDTO);
 
+        if (companyDTO != null
+                && companyDTO.getFirstName() != null
+                && companyDTO.getFirstName().length() >= 4
 
-        if (companyDTO.getFName() == null && companyDTO.getFName().length() >= 4 && companyDTO.getFName().isEmpty()
-                && companyDTO.getLName() == null && companyDTO.getLName().length() >= 1 &&
-                companyDTO.getEmail() == null && companyDTO.getEmail().length() >= 15 && companyDTO.getEmail().contains("@gmail.com") &&
-                companyDTO.getPassword() == null && companyDTO.getPassword().length() >= 5 &&
-                companyDTO.getCompanyName() == null && companyDTO.getCompanyName().isEmpty() &&
-                companyDTO.getMobileNumber() == null && String.valueOf(companyDTO.getMobileNumber()).length() != 10) {
+                && companyDTO.getLastName() != null
+                && companyDTO.getLastName().length() >= 1
+
+                && companyDTO.getEmail() != null
+                && companyDTO.getEmail().length() >= 15
+                && companyDTO.getEmail().contains("@gmail.com")
+
+                && companyDTO.getPassword() != null
+                && companyDTO.getPassword().length() >= 5
+
+                && companyDTO.getCompanyName() != null
+                && companyDTO.getCompanyName().length() > 0
+
+                && companyDTO.getMobileNumber() != null
+                && String.valueOf(companyDTO.getMobileNumber()).length() == 10
+        ) {
+
+            CompanyEntity entity = new CompanyEntity();
+            entity.setFirstName(companyDTO.getFirstName());
+            entity.setLastName(companyDTO.getLastName());
+            entity.setEmail(companyDTO.getEmail());
+            entity.setPassword(companyDTO.getPassword());
+            entity.setCompanyName(companyDTO.getCompanyName());
+            entity.setMobileNumber(companyDTO.getMobileNumber());
+
+            companyDAO.saveData(entity);
+            return true;
+
+        } else {
             return false;
         }
-
-            CompanyEntity companyEntity = new CompanyEntity();
-            companyEntity.setFName(companyDTO.getFName());
-            companyEntity.setLName(companyDTO.getLName());
-            companyEntity.setEmail(companyDTO.getEmail());
-            companyEntity.setPassword(companyDTO.getPassword());
-            companyEntity.setCompanyName(companyDTO.getCompanyName());
-            companyEntity.setMobileNumber(companyDTO.getMobileNumber());
-            companyDAO.saveData(companyEntity);
-        return true;
-        }
     }
+}

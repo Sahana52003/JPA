@@ -60,17 +60,24 @@
 </head>
 <body>
  <form action="loginPage" method="post">
+
+    <%@ page isELIgnored="false" %>
+
+    <h2 style="color:${color}; text-align:center;">
+        ${message}
+    </h2>
+
     <div class="company">
         <h1 id="heading">Company Registration Form</h1>
 
             <div class="mb-3">
                 <label class="form-label">First Name</label>
-                <input type="text" class="form-control" placeholder="Enter First Name" name="fName">
+                <input type="text" class="form-control" placeholder="Enter First Name" name="firstName">
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Last Name</label>
-                <input type="text" class="form-control" placeholder="Enter Last Name" name="lName">
+                <input type="text" class="form-control" placeholder="Enter Last Name" name="lastName">
             </div>
 
 
