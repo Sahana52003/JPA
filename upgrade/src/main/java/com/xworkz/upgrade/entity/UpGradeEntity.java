@@ -1,28 +1,24 @@
-package com.xworkz.company.entity;
-
+package com.xworkz.upgrade.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
-@Table(name="company_tb")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
-@NamedQuery(name = "data",query = "select entities from CompanyEntity entities")
-public class CompanyEntity {
-
+public class UpGradeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String firstName;
     private String lastName;
     private String email;
     private String password;
-    private String companyName;
-    private Long mobileNumber;
 }

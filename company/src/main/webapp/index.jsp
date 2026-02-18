@@ -108,6 +108,9 @@
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+
+
+        <button type="button"><a href="data">Read Data</button>
     </div>
 </body>
 </html>

@@ -6,6 +6,9 @@ import com.xworkz.company.entity.CompanyEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
+import java.util.List;
+
 @Service
 public class CompanyServiceIml implements CompanyService {
 
@@ -51,5 +54,12 @@ public class CompanyServiceIml implements CompanyService {
         } else {
             return false;
         }
+
+    }
+
+    @Override
+    public List<CompanyEntity> getDtos() {
+        List<CompanyEntity> companyData = companyDAO.getCompanyData();
+        return Collections.emptyList();
     }
 }
